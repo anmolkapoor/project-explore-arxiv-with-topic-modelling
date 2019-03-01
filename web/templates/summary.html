@@ -1,0 +1,173 @@
+<!---
+Overview
+# papers overall and by category
+top authors,
+publication frequency by year (timeline)
+
+Document/Term Frequency
+# tokens
+document length histogram/boxplot
+unique tokens per doc boxplot
+
+
+Key Terms
+Wordcloud
+top/bottom 10 terms
+-->
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-10">
+            <div id="overview">
+
+                <h4>Overview</h4>
+                <hr>
+                <h5>Total Research papers : {{ data_values.overall_papers_count }}</h5>
+                <div class="row">
+                    <div class="col-md-4">
+                        <br>
+                        Papers by category:
+                        <table class="table table-bordered table-striped">
+                            <tr>
+                                <th>Category</th>
+                                <th>Papers</th>
+                            </tr>
+                            {% for key,value in data_values.category_values.items() %}
+                                <tr>
+                                    <td>{{ key }}</td>
+                                    <td>{{ value }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                    <div class="col-md-4">
+                        <br>
+                        Top authors:
+                        <table class="table table-bordered table-striped">
+                             <tr>
+                                <th>Author</th>
+                                <th>Publications</th>
+                            </tr>
+                            {% for key,value in data_values.top_authors.items() %}
+                                <tr>
+                                    <td>{{ key }}</td>
+                                     <td>{{ value }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                    <div class="col-md-4">
+                        <br>
+                        Publications frequency:
+                        <table class="table table-bordered table-striped">
+                            <tr>
+                                <th>Year</th>
+                                <th>Publications</th>
+                            </tr>
+                            {% for key,value in data_values.publication_values.items() %}
+                                <tr>
+                                    <td>{{ key }}</td>
+                                    <td>{{ value }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br>
+        <hr>
+        <div class="col-md-2">
+            <div id="switch_context">
+                <h4>Switch Context</h4>
+                <hr>
+                <br>
+                <ul>
+
+
+                    <li><a href="">All docs</a></li>
+
+                    <br>
+                    <li><a href="?category=">By category</a></li>
+                    <ul>
+                        <li><a href="?category=cs.CV">cs.CV</a></li></li>
+                        <li><a href="?category=cs.LG">cs.LG</a></li></li>
+                        <li><a href="?category=cs.CL">cs.CL</a></li></li>
+                        <li><a href="?category=stat.ML">stat.ML</a></li></li>
+                        <li><a href="?category=cs.AI">cs.AI</a></li></li>
+                    </ul>
+                    <br>
+                    <li><a href="">By topic model</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <br>
+        <hr>
+        <div class="col-md-6">
+            <div id="doc_frequency">
+                <h4>Document/Term Frequency</h4>
+                <hr>
+                <img src="{{ url_for('static', filename=data_values.doc_len_histogram_url) }}"
+                     class="img img-thumbnail"/>
+                <br>
+                <h4>Unique tokens</h4>
+                <img src="{{ url_for('static', filename=data_values.unique_tokens_histogram_url) }}"
+                     class="img img-thumbnail"/>
+
+            </div>
+        </div>
+        <br>
+        <hr>
+        <div class="col-md-6">
+            <div id="key_terms"></div>
+            <h4>Key Terms</h4>
+            <hr>
+            Wordcloud
+            <br>
+            <img src="{{ url_for('static', filename=data_values.wordcloud_url) }}" class="img img-thumbnail"/>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <br>
+                    Top terms:
+                    <br>
+                    <table class="table table-bordered table-striped">
+                        {% for key in data_values.top_words %}
+                            <tr>
+                                <td>{{ key }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+
+                </div>
+                <div class="col-md-6">
+                    <br>
+                    Bottom terms:
+                    <br>
+                    <table class="table table-bordered table-striped">
+                        {% for key in data_values.bottom_words %}
+                            <tr>
+                                <td>{{ key }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+            <br>
+            <hr>
+
+        </div>
+    </div>
+    <div class="row">
+        <br>
+        <hr>
+        {#        <div id="values_string">#}
+        {#            <pre>{{ data_string }}</pre>#}
+        {#        </div>#}
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="row m-1">
+    <div class="col-md-8 border p-1">
+        <div class="col-md-8">
+          <h1 class="h6">Topic Model Parameters</h1>
+        </div>
+        <div class="col-md-8">
+            # Topics: {{ topics }}
+        </div>
+        <div class="col-md-8">
+            # Features: {% if max_features == "0" %}Unlimited{% else %}{{ max_features }}{% endif %}
+        </div>
+        <div class="col-md-8">
+            Minimum document frequency: {{ min_df }}
+        </div>
+    </div>
+    <div class="col-md-4 border border-left-0 p-1">
+        <div class="row">
+            <div class="col-md-8">
+
+            <label>Select topic and feature sizes</label>
+           <select id="experiment" class="form-control form-control-sm" onchange="refreshView(this)">
+               <optgroup label="#Topics: 5">
+                   <option value="5_0.001_10000">Medium</option>
+                   <option value="5_0.001_25000">Large</option>
+               </optgroup>
+               <optgroup label="#Topics: 10">
+                   <option value="10_0.001_10000">Medium</option>
+                   <option value="10_0.001_25000">Large</option>
+               </optgroup>
+               <optgroup label="#Topics: 20">
+                   <option value="20_0.001_10000">Medium</option>
+                   <option value="20_0.001_25000">Large</option>
+               </optgroup>
+           </select>
+            </div>
+            <div class="col-md-4">
+                <a href="/docs/topics/{{topics}}/min_df/{{min_df}}/max_features/{{max_features}}">Explore papers</a>
+            </div>
+      </div>
+
+    </div>
+</div>
+<div class="row m-1">
+    <div class="col-md-12 border p-1">
+        {{ldavis|safe}}
+    </div>
+    <!--
+    <div class="col-md-4 border border-left-0 p-1">.col-md-4</div>
+    -->
+</div>
+
+<script>
+
+
+document.querySelector("#experiment").value = "{{topics}}_{{min_df}}_{{max_features}}";
+
+var refreshView = function(elem) {
+    const versionLabel = elem.value;
+    const num_topics = elem.value.split('_')[0];
+    const min_df = elem.value.split('_')[1];
+    const max_features = elem.value.split('_')[2];
+    window.location.href = `${window.location.origin}/topic-models/view/topics/${num_topics}/min_df/${min_df}/max_features/${max_features}`;
+}
+</script>

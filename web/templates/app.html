@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  {% include 'header.html' %}
+  <body>
+    {% include 'navbar.html' %}
+    <div class="container-fluid">
+      <div class="row">
+        <main role="main" class="col-md-12 ml-sm-auto px-4">
+          {%- if request.path == "/summary" or request.path == "/" %}{% include 'summary.html' %} {% endif %}
+          {%- if request.path.startswith("/topic-models") %}{% include 'topic-models.html' %}{% endif %}
+          {%- if request.path.startswith("/docs") %}{% include 'docs.html' %}{% endif %}
+        </main>
+      </div>
+    </div>
+    {% include 'script-includes.html' %}
+  </body>
+</html>
