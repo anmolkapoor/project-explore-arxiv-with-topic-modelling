@@ -1,1 +1,1 @@
-web: sh -c 'cd web && python app.py'
+web: sh -c 'cd web && FLASK_APP=app.py flask run'
