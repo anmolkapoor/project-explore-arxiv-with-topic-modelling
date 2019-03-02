@@ -19,7 +19,7 @@ def getTableBodyFromCSV(topics,min_df,max_features):
     print("file path:"+str(topic_dist_path))
     df = pd.read_csv(topic_dist_path, header=None, na_values=[''], keep_default_na=False)
     df = df.transpose()
-    df = df.sample(5001)
+    df = df.sample(100)
     tableBody = ""
     for index, row in df.iterrows():
         if (index == 0):
