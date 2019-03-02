@@ -1,15 +1,13 @@
 # arxiv-topics: Explore & Discover Research Papers using Topics Learned from Data
-## Team 70
-### Members
--------
-#### Ashish Gupta, Stefan Jansen, Anmol Kapoor, Akash Mohapatra
-
-#### Team Contact person email Id: sjansen3@gatech.edu
 ##
 
 ## Description
 -----
 arxiv-topics uses unsupervised learning to uncover topics in documents using LDA topic modeling. With the web application, users explore can these topic model experiments using visualizations, their related documents and find documents similar to each other.
+
+## Running app demo ( on Heroku)
+
+Link: [https://boiling-thicket-31500.herokuapp.com/](https://boiling-thicket-31500.herokuapp.com/)
 
 ## Installation
 ------
