@@ -1,14 +1,13 @@
 # Arxiv-topics: Explore & Discover Research Papers on Arxiv repository using Topics Learned from Data
 ##
 
-
-[Arxiv repository https://arxiv.org/ ] (https://arxiv.org/) hosts 1.5m academic papers, and users add over 10K papers per month. Keeping track of trends is challenging as it is limited to keyword search, and does not let users track and explore content based on themes that capture relationships beyond shared words, or recommend content from this perspective. This challenged us to use unsupervised learning to learn topics to summarise documents, and let users explore and find research papers on similar topics.
+[ Arxiv repository https://arxiv.org/ ](https://arxiv.org/) hosts 1.5m academic papers, and users add over 10K papers per month. Keeping track of trends is challenging as it is limited to keyword search, and does not let users track and explore content based on themes that capture relationships beyond shared words, or recommend content from this perspective. This challenged us to use unsupervised learning to learn topics to summarise documents, and let users explore and find research papers on similar topics.
 
 Our approach is divided in three steps:
 
 First, For the topic discovery we used LDA topic model. In simple terms, with given documents and their words, the purpose of LDA is to learn the representation of fixed number of topics from the corpus and their distribution. We also experimented with  with other topic models such as LSA, contrasted their result and found LDA topics to be more accurate and interpretable.
 
-Second, At the core of our web application, we use pyLDAvis, to visulaize and let user explore individual topics and its associated terms.
+Second, At the core of our web application, we use pyLDAvis, to visualize and let user explore individual topics and its associated terms.
 Whats new in our approach is third step which now allow user to find research paper similar to its topic mix. For example, a user reading research paper on theme of Computer vision and Human Computer Interaction. can easily find another paper around same theme.
 
 For experiments we  download 26,000 research papers through [Arxiv api https://arxiv.org/help/api/index](https://arxiv.org/help/api/index), lemmatised them, applied stemming, and examined top 1000 keywords manually
@@ -29,6 +28,3 @@ To evaluate a topic model, we calculated Topic coherence which is measures of to
 ###### 15 min read
 -----
 [Detailed  Report PDF ](https://github.com/anmolkapoor/explore-arxiv-using-lda-gensim-topic-modelling/blob/master/documents/report.pdf)
-
-
-
