@@ -60,7 +60,7 @@ msgpack-numpy==0.4.3.2
 murmurhash==1.0.1
 nbconvert==5.4.0
 nbformat==4.4.0
-notebook==5.7.2
+notebook==6.1.5
 numexpr==2.6.8
 numpy==1.15.2
 oaiharvest==3.0.0
