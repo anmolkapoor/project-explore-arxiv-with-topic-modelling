@@ -88,7 +88,7 @@ pytest==3.10.0
 python-dateutil==2.7.3
 python-pptx==0.6.5
 pytz==2018.5
-PyYAML==4.2b1
+PyYAML==5.4
 pyzmq==17.1.2
 regex==2018.1.10
 requests==2.20.0
